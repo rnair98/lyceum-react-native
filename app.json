@@ -1,7 +1,9 @@
 {
   "expo": {
     "name": "lyceum-expo",
+    "description": "This project is really great.",
     "slug": "lyceum-expo",
+    "privacy": "public",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -27,6 +29,13 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "packagerOpts":{
+      "sourceExts": [
+        "ts",
+        "tsx"
+      ],
+      "transformer": "node_modules/react-native-typescript-transformer/index.js"
     }
   }
 }
