@@ -1,4 +1,5 @@
-import React from 'react';
+import * as React from 'react';
+import { FC, useContext } from 'react';
 import { StyleSheet,Text,View, Image, TouchableOpacity,Button, Pressable } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RouteProp } from '@react-navigation/native';
@@ -57,7 +58,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: -15,
     right: -20,
-    width: 140,
+    width: 200,
+    height: 200,
 
   },
   textContainer: {

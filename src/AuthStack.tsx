@@ -16,14 +16,14 @@ export const AuthStack: React.FC<AuthStackProps> = ({}) => {
                 options={{
                     headerTitleStyle: { alignSelf: 'center'},
                     headerTitle: "Welcome",
-                    //header: () => null        
+                    headerShown: false    
                 }}
                 component={SplashScreen} 
             />
             <Stack.Screen name="Login" 
                 options={{
                     headerTitle: "Sign In",
-                    header: () => null
+                    headerShown: false
                 }}
                 component={LoginScreen} 
             />

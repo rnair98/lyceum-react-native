@@ -5,6 +5,8 @@ import { Button, FlatList, Text, TouchableOpacity } from 'react-native';
 import { AuthContext } from './AuthProvider';
 import faker from "faker";
 import { HomeParamList, HomeStackNavProps } from './HomeParamList';
+import { addProductRoutes } from './addProductRoutes';
+import DashBoard from '../screens/DashBoard';
 
 
 interface HomeStackProps {
@@ -34,44 +36,19 @@ function Feed({navigation} : HomeStackNavProps<"Feed">) {
     );
 }
 
-function Product({ route }: HomeStackNavProps<"Product">) {
-    return (
-        <Center>
-            <Text>{route.params.name}</Text>
-        </Center>
-    );
-}
-
-function apiCall(x: any){
-    return x;
-}
-
-function EditProduct({ route, navigation }: HomeStackNavProps<"EditProduct">) {
-    const [formState] = useState();
-    const submit = useRef(() => {});
-
-    submit.current = () => {
-        // api call with new form state
-        apiCall(formState);
-        navigation.goBack();
-    }
-
-    useEffect(() => {
-        navigation.setParams({ submit });
-    }, []);
-
-    return (
-        <Center>
-            <Text>Fields to edit {route.params.name} will be here.</Text>
-        </Center>
-    );
-}
-
 
 export const HomeStack: React.FC<HomeStackProps> = ({}) => {
     const {logout} = useContext(AuthContext);
     return (
-        <Stack.Navigator>
+        <Stack.Navigator initialRouteName="Dash">
+            {addProductRoutes(Stack)}
+            <Stack.Screen 
+                name='Dash'
+                options = {{
+                    headerShown: false
+                }}
+                component={DashBoard}
+            />
             <Stack.Screen 
                 name='Feed'
                 options = {{
@@ -85,46 +62,6 @@ export const HomeStack: React.FC<HomeStackProps> = ({}) => {
                     }
                 }}
                 component={Feed}
-            />
-            <Stack.Screen
-                options={({route, navigation}) => ({
-                    headerTitleStyle: { alignSelf: 'center'},
-                    headerTitle: `Product: ${route.params.name}`,
-                    headerRight: () => {
-                        return (
-                            <TouchableOpacity onPress={() => 
-                                navigation.navigate('EditProduct', {
-                                    name: route.params.name
-                                })
-                            }>
-                                <Text style={ {paddingRight: 8 }}>EDIT</Text>
-                            </TouchableOpacity>
-                        );
-                    }
-                })}
-                name='Product'
-                component={Product}
-            />
-            <Stack.Screen
-                options={({route}) => ({
-                    headerTitleStyle: { alignSelf: 'center'},
-                    headerTitle: `Editing ${route.params.name}`,
-                    headerRight: () => (
-                    <TouchableOpacity 
-                        onPress={() => {
-                            //submit the form 
-                            if (route.params.submit){
-                                route.params.submit.current()
-                            }
-                        }}
-                        style={ {paddingRight: 8 }}>
-                        <Text style={{color:"red"}}>Done</Text>
-                    </TouchableOpacity>
-                    )
-
-                })}
-                name='EditProduct'
-                component={EditProduct}
             />
         </Stack.Navigator>
     );
