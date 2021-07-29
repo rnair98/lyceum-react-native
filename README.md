@@ -1,9 +1,5 @@
-<center><h1>
-  lyceum
-  </h1></center>
-
-
-
+<a href="https://www.google.com"><p align="center">
+<img height=100 src="https://previews.dropbox.com/p/thumb/ABMTffxWwUXXY6KeftsT1VijXF4vWomjl2W8qBHZtW69c_gn6wXsf7d_M3A0AY5RtNWkGqGDRNModRtQnaXdjrzFkIPzKSi26cyqYk8C7BFUpX3ONihlaXFoQTZT1ASlbYYb8xaPCWCFeQNoQ5tAJwp4NRcyajwdqmQGMBHQzheHAtpqkqOGFPmKDBUlXqtHqPSbFBgZQreSKgqRwYndjgQw_LFyN4uN-eSPJcKI8KN8q5COLb4BCFYbCqKMlnz0wBLYfQvKxEekFrq-zS9z4Jj9mE7cqwDc8mIqIXEku3P3n1eJyQYNLTjokENVhtdhYQ86KKfEmWycluz_aSPlAxziEboPRV3iU_SVly1APhJg-Q/p.jpeg?fv_content=true&size_mode=5"/>
 <p align="center">
   <strong>A socio-educational discovery app for finding and saving course recommendations for MOOCs. 🏛 </strong>
 </p>
