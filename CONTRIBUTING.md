@@ -12,7 +12,7 @@ Contribution Scope:
 
 ## Development Process
 
-All changes happen through pull requests. Pull requests are the best way to propose changes. We actively welcome your pull requests and invite you to submit pull requests directly [here](https://github.com/rnair98/lyceum-react-native/pulls), and after review, these can be merged into the project.
+All changes happen through pull requests. Pull requests are the best way to propose changes. All types of pull requests are welcome and you're invited to submit pull requests directly [here](https://github.com/rnair98/lyceum-react-native/pulls), and after review, these can be merged into the project.
 
 ## Using the Project's Standard Commit Messages
 
@@ -97,7 +97,7 @@ git push -u origin develop
 
 > NOTE: If your bug is a **security vulnerability**, please instead see the [security policy](https://github.com/rnair98/lyceum-react-native/security/policy)
 
-We use GitHub issues to track public bugs. Please ensure your description is
+Github Issues is the preferred method to track public bugs. Please ensure your description is
 clear and has sufficient instructions to be able to reproduce the issue. Report a bug by <a href="https://github.com/rnair98/lyceum-react-native/issues">opening a new issue</a>
 
 ## Frequently Asked Questions (FAQs)
