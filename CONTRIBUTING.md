@@ -43,7 +43,7 @@ cd lyceum-react-native
 3. Download dependencies
 
 ```
-npm
+npm install
 ```
 
 4. Start Expo Server
