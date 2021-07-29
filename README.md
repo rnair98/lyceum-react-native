@@ -1,7 +1,9 @@
-![image-20210728232435849](/Users/nairr98/Library/Application Support/typora-user-images/image-20210728232435849.png)
+<center><h1>
+  lyceum
+  </h1></center>
 
-```html
-</p></a>
+
+
 <p align="center">
   <strong>A socio-educational discovery app for finding and saving course recommendations for MOOCs. 🏛 </strong>
 </p>
@@ -19,7 +21,8 @@
   <span> · </span>
   <a href="https://www.google.com">Documentation</a>
 </h3>
-```
+
+---
 
 ## Installation
 
