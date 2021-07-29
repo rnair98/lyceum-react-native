@@ -12,10 +12,14 @@
   <a href="https://join.slack.com/t/lyceum-app/signup">
     <img src="https://img.shields.io/badge/Slack-%40lyceum--app%2FLYCEUM-informational" alt="slack" />
   </a>
+  <a href="https://drive.google.com/drive/folders/1veUqdmMiuGl8m0rIrhU4gth7zQpH03e9?usp=sharing">
+    <img src="https://img.shields.io/badge/Drive-project%20docs-yellow" alt="gdrive" />
+  </a>
   <a href="https://app.asana.com/share/umich/cis-375-final-project-team-i/939514425027676/8840abf1061e76e21821495b4b4aa93e">
     <img src="https://img.shields.io/badge/Asana-project%20management-critical" alt="asana"/>
   </a>
 </p>
+
 
 <h3 align="center">
   <a href="https://github.com/rnair98/lyceum-react-native/blob/main/CONTRIBUTING.md">Contribute</a>
