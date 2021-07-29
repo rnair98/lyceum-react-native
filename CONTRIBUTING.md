@@ -26,7 +26,11 @@ This project is using the [conventional commits](https://www.conventionalcommits
 
 ## Quickstart
 
-## Installation
+- Make sure you have both Node and npm as well as Expo installed on your machine.
+  - Install Node: https://nodejs.org/en/
+  - Expo: https://docs.expo.io/
+
+## Installation 
 
 1. Clone project
 
