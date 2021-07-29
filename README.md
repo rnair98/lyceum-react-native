@@ -1,5 +1,25 @@
-# lyceum-react-native
-a social and educational networking app for finding and saving course recommendations for MOOCs. 
+![image-20210728232435849](/Users/nairr98/Library/Application Support/typora-user-images/image-20210728232435849.png)
+
+```html
+</p></a>
+<p align="center">
+  <strong>A socio-educational discovery app for finding and saving course recommendations for MOOCs. 🏛 </strong>
+</p>
+<p align="center">
+  <a href="https://join.slack.com/t/lyceum-app/signup">
+    <img src="https://img.shields.io/badge/Slack-%40lyceum--app%2FLYCEUM-informational" alt="slack" />
+  </a>
+  <a href="https://app.asana.com/share/umich/cis-375-final-project-team-i/939514425027676/8840abf1061e76e21821495b4b4aa93e">
+    <img src="https://img.shields.io/badge/Asana-project%20management-critical" alt="asana"/>
+  </a>
+</p>
+
+<h3 align="center">
+  <a href="https://www.google.com">Contribute</a>
+  <span> · </span>
+  <a href="https://www.google.com">Documentation</a>
+</h3>
+```
 
 ## Installation
 
