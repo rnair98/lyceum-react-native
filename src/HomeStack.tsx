@@ -1,5 +1,6 @@
 import { createStackNavigator } from '@react-navigation/stack';
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import * as React from 'react';
+import { useContext, useEffect, useRef, useState } from 'react'
 import { Center } from './Center';
 import { Button, FlatList, Text, TouchableOpacity } from 'react-native';
 import { AuthContext } from './AuthProvider';
@@ -52,7 +53,7 @@ export const HomeStack: React.FC<HomeStackProps> = ({}) => {
             <Stack.Screen 
                 name='Feed'
                 options = {{
-                    headerTitleStyle: { alignSelf: 'center', marginLeft: 55},
+                    headerTitleStyle: { alignSelf: 'center'},
                     headerRight: () => {
                         return (
                             <TouchableOpacity onPress={() => {logout()}}>

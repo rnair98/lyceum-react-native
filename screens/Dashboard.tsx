@@ -18,49 +18,80 @@ import { HomeParamList, HomeStackNavProps } from '../src/HomeParamList';
 import {
     useFonts,
     Roboto_400Regular,
-    FiraSansCondensed_400Regular
+    FiraSansCondensed_400Regular,
+    FiraSansCondensed_300Light,
+    Ubuntu_400Regular
 } from "@expo-google-fonts/dev";
+import { Center } from '../src/Center';
+import AppleHeader from "react-native-apple-header";
 
 function DashBoard ({navigation}:HomeStackNavProps<'Dash'>) {
 
     let [fontsLoaded] = useFonts({
         Roboto_400Regular,
-        FiraSansCondensed_400Regular
+        FiraSansCondensed_400Regular,
+        FiraSansCondensed_300Light,
+        Ubuntu_400Regular
       });
     
     const { colors } = useTheme();
 
     return (
         <View style={styles.container}>
-          <ImageBackground source={require('../assets/dash.png')} style={styles.backgroundImage}/>
-          <StatusBar backgroundColor='#009387' barStyle="dark-content"/>
-        <View style={styles.header}>
+        <AppleHeader
+            imageSource={{
+                uri: "http://dev.villanovaice.com/wp-content/uploads/2015/02/Elon-Musk-300x300.jpg",
+                }}
+            dateTitle="WEDNESDAY, 28 JULY"
+            dateTitleStyle={{
+                fontFamily: "FiraSansCondensed_300Light",
+                marginLeft: 3,
+            }}
+            largeTitle="DashBoard"
+            largeTitleStyle = {{
+                color: "#333333",
+                fontFamily: "FiraSansCondensed_400Regular",
+                fontSize: 40,
+                letterSpacing: 0,
+                width: "251px",
+            }}
+            containerStyle={{
+                backgroundColor: "#becdf0", 
+                flexDirection: 'row',
+                padding: 20,
+                alignItems: "flex-start",
+                justifyContent: "space-between"}}
+        />
+        <ImageBackground source={require('../assets/dash.png')} style={styles.backgroundImage}/>
+        {/* <View style={styles.header}>
             <Text style={[styles.title, {
-                    color: colors.text
-                }]}>Dashboard</Text>
-        </View>
+            color: colors.text
+            }]}>Dashboard</Text>
+            <Text style={styles.text}>Insert Dashboard here.</Text>
+        </View> */}
         <Animatable.View 
             style={[styles.footer, {
                 backgroundColor: colors.background
             }]}
             animation="fadeInUpBig"
         >
-            <Text style={styles.text}>Insert Dashboard here.</Text>
-            <View style={styles.button}>
-            <TouchableOpacity style={styles.signIn} onPress={()=>navigation.navigate('Feed')}>
-                {/* <LinearGradient
-                    colors={['#08d4c4', '#01ab9d']}
-                    style={styles.signIn}
-                > */}
-                    <Text style={styles.textSign}>All Courses</Text>
-                    <MaterialIcons 
-                        name="navigate-next"
-                        color="#fff"
-                        size={20}
-                    />
-                {/* </LinearGradient> */}
-            </TouchableOpacity>
-            </View>
+            <Center>
+                <View style={styles.button}>
+                <TouchableOpacity style={styles.signIn} onPress={()=>navigation.navigate('Feed')}>
+                    {/* <LinearGradient
+                        colors={['#08d4c4', '#01ab9d']}
+                        style={styles.signIn}
+                    > */}
+                        <Text style={styles.textSign}>All Courses</Text>
+                        <MaterialIcons 
+                            name="navigate-next"
+                            color="#fff"
+                            size={20}
+                        />
+                    {/* </LinearGradient> */}
+                </TouchableOpacity>
+                </View>
+            </Center>
         </Animatable.View>
       </View>
     );
@@ -87,7 +118,9 @@ const styles = StyleSheet.create({
     fontFamily: "FiraSansCondensed_400Regular",
     color: "black",
     fontSize: 45,
-    letterSpacing: 0
+    letterSpacing: 0,
+    backgroundColor: "transparent",
+    position: "absolute"
   },
   footer: {
       flex: 1,
@@ -115,7 +148,7 @@ const styles = StyleSheet.create({
       marginTop: 30
   },
   signIn: {
-      backgroundColor: 'blue',
+      backgroundColor: '#05375a',
       width: 150,
       height: 40,
       justifyContent: 'center',
