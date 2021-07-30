@@ -24,8 +24,9 @@ import {
 } from "@expo-google-fonts/dev";
 import { Center } from '../src/Center';
 import AppleHeader from "react-native-apple-header";
+import { DrawerNavProps } from '../src/DrawerParamList';
 
-function DashBoard ({navigation}:HomeStackNavProps<'Dash'>) {
+function DashBoard ({navigation}:DrawerNavProps<'Drawer'>) {
 
     let [fontsLoaded] = useFonts({
         Roboto_400Regular,
@@ -61,6 +62,8 @@ function DashBoard ({navigation}:HomeStackNavProps<'Dash'>) {
                 padding: 20,
                 alignItems: "flex-start",
                 justifyContent: "space-between"}}
+
+            onPress={navigation.openDrawer}
         />
         <ImageBackground source={require('../assets/dash.png')} style={styles.backgroundImage}/>
         {/* <View style={styles.header}>
@@ -77,7 +80,7 @@ function DashBoard ({navigation}:HomeStackNavProps<'Dash'>) {
         >
             <Center>
                 <View style={styles.button}>
-                <TouchableOpacity style={styles.signIn} onPress={()=>navigation.navigate('Feed')}>
+                <TouchableOpacity style={styles.signIn} onPress={()=>navigation.navigate('Swipe')}>
                     {/* <LinearGradient
                         colors={['#08d4c4', '#01ab9d']}
                         style={styles.signIn}

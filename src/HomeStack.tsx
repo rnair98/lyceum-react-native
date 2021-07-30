@@ -7,7 +7,7 @@ import { AuthContext } from './AuthProvider';
 import faker from "faker";
 import { HomeParamList, HomeStackNavProps } from './HomeParamList';
 import { addProductRoutes } from './addProductRoutes';
-import DashBoard from '../screens/DashBoard';
+import DashBoard from '../screens/Dashboard';
 
 
 interface HomeStackProps {

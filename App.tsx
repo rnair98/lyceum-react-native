@@ -2,6 +2,9 @@ import 'react-native-gesture-handler';
 import React, { FC } from 'react';
 import Constants from 'expo-constants';
 import { Providers } from "./src/Providers";
+import { DrawerNavProps, DrawerParamList } from './src/DrawerParamList';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
 // import { StyleSheet, Text, View } from 'react-native';
 //import { Routes } from "./Routes";
 
@@ -24,7 +27,12 @@ import { Providers } from "./src/Providers";
   );
 } */
 
+
+
 export default Providers;
+
+
+
 
 /* const styles = StyleSheet.create({
   container: {
