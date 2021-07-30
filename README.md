@@ -1,69 +1,49 @@
-# lyceum-react-native
-a social and educational networking app for finding and saving course recommendations for MOOCs. 
+<p align="center">
+  <a href="https://swipeclass.web.app/">
+    <img src="https://github.com/rnair98/lyceum-react-native/blob/main/assets/lyceum.jpeg?raw=true" alt="logo" height=150 />
+	</a>
+</p>
 
-## Installation
+---
+<p align="center">
+  <strong>A socio-educational discovery app for finding the best MOOCs. 🏛</strong>
+</p>
+<p align="center">
+  <a href="https://join.slack.com/t/lyceum-app/signup">
+    <img src="https://img.shields.io/badge/Slack-%40lyceum--app%2FLYCEUM-informational" alt="slack" />
+  </a>
+  <a href="https://drive.google.com/drive/folders/1veUqdmMiuGl8m0rIrhU4gth7zQpH03e9?usp=sharing">
+    <img src="https://img.shields.io/badge/Drive-project%20docs-yellow" alt="gdrive" />
+  </a>
+  <a href="https://app.asana.com/share/umich/cis-375-final-project-team-i/939514425027676/8840abf1061e76e21821495b4b4aa93e">
+    <img src="https://img.shields.io/badge/Asana-project%20management-critical" alt="asana"/>
+  </a>
+</p>
 
-1. Clone project
 
-```
-git clone https://github.com/rnair98/lyceum-react-native
-```
+<h3 align="center">
+  <a href="https://github.com/rnair98/lyceum-react-native/blob/main/CONTRIBUTING.md">Contribute</a>
+  <span> · </span>
+  <a href="https://lyceum-1.gitbook.io/lyceum/">Documentation</a>
+</h3>
 
-2. cd into folder
 
-```
-cd lyceum-react-native
-```
+---
 
-3. Download dependencies
+## Branches
 
-```
-npm
-```
+* main -> PR this branch for all edits.
+* develop -> checkout this branch locally and test all changes made here.
 
-4. Start Expo Server
+## Contributions
 
-```
-expo start
-```
+Lyceum is open to contributions. Please create an issue or reply to an existing comment to let me know what you’re working on in order to prevent merge conflicts.
 
-## Development
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for project details
 
-1. Fork repo from Github and clone project locally
+## Current Maintainers
 
-```
-git clone https://github.com/rnair98/lyceum-react-native
-```
+If you have forked this repo and making any sort of contributions to the project, please add your handle below.
 
-2. Connect your local project to the original repo on Github
+* [@rnair98](https://github.com/rnair98)
 
-```
-git remote add origin https://github.com/rnair98/lyceum-react-native
-```
-
-3. Before making any changes, pull in any changes from “upstream”.
-
-```
-git pull
-```
-
-2. Change your branch to “develop”. All changes and commits will be made in this branch.
-
-```
-git checkout develop
-```
-
-2. After going through an editing workflow, stage and commit your changes with a message highlighting what kind of changes you made.
-
-```
-git add *
-git commit -m "Insert Message Here"
-```
-
-3. Push your commits to Github
-
-```
-git push -u origin develop
-```
-
-4. Create a Pull Request on Github (*For Reference: https://makeapullrequest.com/*) 

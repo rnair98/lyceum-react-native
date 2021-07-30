@@ -3,14 +3,14 @@ import { Props, useEffect, useRef, useState } from "react";
 import { Text } from "react-native";
 import { TouchableOpacity } from "react-native";
 import { Center } from "./Center";
-import { HomeParamList, HomeStackNavProps } from "./HomeParamList";
+import { ProductParamList, ProductNavProps } from "./ProductParamList";
 import { TypedNavigator, StackNavigationState } from "@react-navigation/native";
 import { SearchParamList, SearchStackNavProps } from "./SearchParamList";
 import { StackNavigationOptions } from "@react-navigation/stack";
 import { StackNavigationEventMap } from "@react-navigation/stack/lib/typescript/src/types";
 
 
-function Product({ route }: HomeStackNavProps<"Product"> | SearchStackNavProps<"Product">) {
+function Product({ route }: ProductNavProps<"Product"> | SearchStackNavProps<"Product">) {
     return (
         <Center>
             <Text>{route.params.name}</Text>
@@ -22,7 +22,7 @@ function apiCall(x: any){
     return x;
 }
 
-function EditProduct({ route, navigation }: HomeStackNavProps<"EditProduct">) {
+function EditProduct({ route, navigation }: ProductNavProps<"EditProduct">) {
     const [formState] = useState();
     const submit = useRef(() => {});
 
