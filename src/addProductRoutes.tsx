@@ -1,4 +1,5 @@
-import React, { Props, useEffect, useRef, useState } from "react";
+import * as React from 'react';
+import { Props, useEffect, useRef, useState } from "react";
 import { Text } from "react-native";
 import { TouchableOpacity } from "react-native";
 import { Center } from "./Center";

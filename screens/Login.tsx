@@ -1,4 +1,5 @@
-import React, { FC, useContext } from 'react';
+import * as React from 'react';
+import { FC, useContext } from 'react';
 import { StyleSheet, Text, TextInput, View, Image, TouchableOpacity, Dimensions, Platform, Touchable, Button } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';

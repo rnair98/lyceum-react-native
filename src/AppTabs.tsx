@@ -1,4 +1,5 @@
-import React, { useContext } from 'react';
+import * as React from 'react';
+import { useContext } from 'react';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { AppParamList } from './AppParamList';
 import { AntDesign,FontAwesome,Ionicons } from "@expo/vector-icons";
