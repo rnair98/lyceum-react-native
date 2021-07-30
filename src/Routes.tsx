@@ -10,6 +10,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { AuthContext } from './AuthProvider';
 import { AppTabs } from './AppTabs';
 import { AuthStack } from './AuthStack';
+import { DrawerNav } from './DrawerNav';
 
 interface RoutesProps {}
 
@@ -41,7 +42,7 @@ export const Routes: React.FC<RoutesProps> = ({}) => {
 
     return (
         <NavigationContainer>
-            {user ? <AppTabs /> : <AuthStack />}
+            {user ? <AppTabs /> && <DrawerNav/> : <AuthStack />}
         </NavigationContainer>
     );
 };

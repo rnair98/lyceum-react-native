@@ -1,12 +1,12 @@
 import { StackNavigationProp } from "@react-navigation/stack";
 import { AuthParamList } from "./AuthParamList";
 import { RouteProp } from "@react-navigation/native"
-import { ProductParamList } from "./ProductParamList";
+
 
 export type HomeParamList = {
     Dash: undefined;
-    Feed: undefined;
-} & ProductParamList;
+    Swipe: undefined;
+};
 
 
 export type HomeStackNavProps<T extends keyof HomeParamList> = {
