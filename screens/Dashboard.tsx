@@ -8,7 +8,9 @@ import {
     StyleSheet,
     StatusBar,
     Image,
-    ImageBackground
+    ImageBackground,
+    SafeAreaView,
+    ScrollView
 } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import LinearGradient from 'react-native-linear-gradient';
@@ -25,6 +27,8 @@ import {
 import { Center } from '../src/Center';
 import AppleHeader from "react-native-apple-header";
 import { DrawerNavProps } from '../src/DrawerParamList';
+import CarouselCards from '../components/CarouselCards';
+import DashCards from '../components/DashCards';
 
 function DashBoard ({navigation}:DrawerNavProps<'Drawer'>) {
 
@@ -65,37 +69,43 @@ function DashBoard ({navigation}:DrawerNavProps<'Drawer'>) {
 
             onPress={navigation.openDrawer}
         />
-        <ImageBackground source={require('../assets/dash.png')} style={styles.backgroundImage}/>
+        <CarouselCards/>
+        <ImageBackground source={require('../assets/dash.png')} style={styles.backgroundImage}/> 
         {/* <View style={styles.header}>
             <Text style={[styles.title, {
             color: colors.text
             }]}>Dashboard</Text>
             <Text style={styles.text}>Insert Dashboard here.</Text>
         </View> */}
-        <Animatable.View 
-            style={[styles.footer, {
-                backgroundColor: colors.background
-            }]}
-            animation="fadeInUpBig"
-        >
-            <Center>
-                <View style={styles.button}>
-                <TouchableOpacity style={styles.signIn} onPress={()=>navigation.navigate('Swipe')}>
-                    {/* <LinearGradient
-                        colors={['#08d4c4', '#01ab9d']}
-                        style={styles.signIn}
-                    > */}
-                        <Text style={styles.textSign}>All Courses</Text>
-                        <MaterialIcons 
-                            name="navigate-next"
-                            color="#fff"
-                            size={20}
-                        />
-                    {/* </LinearGradient> */}
-                </TouchableOpacity>
-                </View>
-            </Center>
-        </Animatable.View>
+        <SafeAreaView style={{flex: 3}}>
+            <ScrollView>
+                <Animatable.View 
+                    style={[styles.footer, {
+                        backgroundColor: colors.background
+                    }]}
+                    animation="fadeInUpBig"
+                >
+                    <Center>
+                        <DashCards/>
+                        <View style={styles.button}>
+                        <TouchableOpacity style={styles.signIn} onPress={()=>navigation.navigate('Swipe')}>
+                            {/* <LinearGradient
+                                colors={['#08d4c4', '#01ab9d']}
+                                style={styles.signIn}
+                            > */}
+                                <Text style={styles.textSign}>All Courses</Text>
+                                <MaterialIcons 
+                                    name="navigate-next"
+                                    color="#fff"
+                                    size={20}
+                                />
+                            {/* </LinearGradient> */}
+                        </TouchableOpacity>
+                        </View>
+                    </Center>
+                </Animatable.View>
+            </ScrollView>
+        </SafeAreaView>
       </View>
     );
 };
@@ -110,9 +120,9 @@ const styles = StyleSheet.create({
     flex: 2, 
   },
   backgroundImage: {
-    flex: 2,
+    flex: 1,
     width:"100%",
-    height:"100%",
+    height:"200%",
   },
   header: {
     justifyContent: 'flex-end',
@@ -126,12 +136,13 @@ const styles = StyleSheet.create({
     position: "absolute"
   },
   footer: {
-      flex: 1,
+      flex: 2,
       backgroundColor: '#fff',
-      borderTopLeftRadius: 30,
-      borderTopRightRadius: 30,
+      borderTopLeftRadius: 50,
+      borderTopRightRadius: 50,
       paddingVertical: 50,
-      paddingHorizontal: 30
+      paddingHorizontal: 40,
+      width: "100%",
   },
   logo: {
       width: height_logo,
