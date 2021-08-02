@@ -1,0 +1,48 @@
+.card {
+    position: relative;
+    width: 500px;
+    padding: 20px;
+    max-width: 70vw;
+    height: 60vh;
+    border-radius: 20px;
+    background-size: cover;
+    box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.1);
+}
+.card > h2 {
+    text-align: left;
+    color: black;
+    font-family: FiraSansCondensed_300Light;
+    font-size: 20px;
+    position: absolute;
+    margin-top: 19.5em;
+    margin-left: -0.3em;
+}
+#description {
+    text-align: justify;
+    color: black;
+    font-family: FiraSansCondensed_300Light;
+    font-size: 12px;
+    position: absolute;
+    margin-top: 37em;
+    margin-left: -0.5em;
+    margin-right: 1em;
+}
+#author {
+    text-align: left;
+    color: black;
+    font-family: FiraSansCondensed_300Light;
+    font-size: 11px;
+    position: absolute;
+    margin-top: 50em;
+    margin-left: -0.8em;
+}
+
+
+.Cards__cardContainer{
+    display: flex;
+    justify-content:center;
+    margin-top: 10vh;
+}
+.swipe {
+    position: absolute;
+}

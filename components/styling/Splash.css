@@ -1,0 +1,35 @@
+.splash {
+    align-items: center;
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    height: 812px;
+    overflow: hidden;
+    width: 375px;
+  }
+  
+  @import url("https://fonts.googleapis.com/css?family=Roboto:400,700|Poppins:400|Fira+Sans+Condensed:400");
+  
+  .screen a {
+    display: contents;
+    text-decoration: none;
+  }
+  
+  .container-center-horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    pointer-events: none;
+    width: 100%;
+  }
+  
+  .container-center-horizontal > * {
+    flex-shrink: 0;
+    pointer-events: auto;
+  }
+  
+  .smart-layers-pointers,
+  .smart-layers-pointers * {
+    pointer-events: auto;
+    visibility: visible;
+  }
