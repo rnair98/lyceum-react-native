@@ -4,7 +4,7 @@ import { Button, FlatList, Text, TouchableOpacity, Image } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { SearchParamList } from "./SearchParamList";
 import { Center } from "./Center";
-import faker from "faker"
+import faker from "faker";
 import { addProductRoutes } from "./addProductRoutes";
 import { DrawerNavProps } from './DrawerParamList';
 import {FontAwesome5} from "@expo/vector-icons";
