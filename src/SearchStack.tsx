@@ -2,9 +2,9 @@ import * as React from 'react';
 import { useState } from 'react';
 import { Button, FlatList, Text, TouchableOpacity, Image } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { SearchParamList } from "./SearchParamList";
+import { SearchParamList, SearchStackNavProps } from "./SearchParamList";
 import { Center } from "./Center";
-import faker from "faker";
+//import faker from "faker";
 import { addProductRoutes } from "./addProductRoutes";
 import { DrawerNavProps } from './DrawerParamList';
 import {FontAwesome5} from "@expo/vector-icons";
@@ -13,7 +13,7 @@ interface SearchStackProps {}
 
 const Stack = createStackNavigator<SearchParamList>();
 
-function Search({ navigation }){
+function Search({ navigation }: SearchStackNavProps<"Search">){
     const [show, setShow] = useState(false);
     return(
         <Center>
@@ -62,7 +62,7 @@ export const SearchStack: React.FC<SearchStackProps> = ({navigation}: DrawerNavP
                             //     <Text style={ {paddingRight: 8 }}>LOGOUT</Text>
                             // </TouchableOpacity>
 
-                            <TouchableOpacity style={{alignSelf: "center",justifyContent: "center",padding:10}} onPress={navigation.openDrawer}>
+                            <TouchableOpacity style={{alignSelf: "flex-end",justifyContent: "center",padding:10}} onPress={navigation.openDrawer}>
                                 <Image 
                                     style={{height: 43,width: 43,borderRadius: 43 / 2}} 
                                     source={{uri: "http://dev.villanovaice.com/wp-content/uploads/2015/02/Elon-Musk-300x300.jpg"}}

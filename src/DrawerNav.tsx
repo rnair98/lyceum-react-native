@@ -9,7 +9,10 @@ const Drawer = createDrawerNavigator();
 
 export const DrawerNav: React.FC<DrawerProps> = ({}) => {
     return (
-        <Drawer.Navigator drawerContent={props => <DrawerContent {...props}/>} drawerPosition="right">
+        <Drawer.Navigator drawerContent={props => <DrawerContent {...props}/>} 
+                        screenOptions={{
+                        headerShown: false,
+                        drawerPosition: "right"   }}>
             <Drawer.Screen name="Home" component={AppTabs}/>
         </Drawer.Navigator>
     );

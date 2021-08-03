@@ -49,13 +49,16 @@ export const SwipeStack: React.FC<SwipeStackProps> = ({navigation}: DrawerNavPro
                     },
                     headerTransparent: true,
                     headerTitleAlign: 'center',
+                    headerStyle: {
+                        padding:20,
+                    },
                     headerRight: () => {
                         return (
                             // <TouchableOpacity onPress={() => {logout()}}>
                             //     <Text style={ {paddingRight: 8 }}>LOGOUT</Text>
                             // </TouchableOpacity>
 
-                            <TouchableOpacity style={{alignSelf: "center",justifyContent: "center",padding:10}} onPress={navigation.openDrawer}>
+                            <TouchableOpacity style={{alignSelf: "flex-end",justifyContent: "center",padding:10}} onPress={navigation.openDrawer}>
                                 <Image 
                                     style={{height: 43,width: 43,borderRadius: 43 / 2}} 
                                     source={{uri: "http://dev.villanovaice.com/wp-content/uploads/2015/02/Elon-Musk-300x300.jpg"}}

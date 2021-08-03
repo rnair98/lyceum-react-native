@@ -30,19 +30,33 @@ export const AppTabs: React.FC<AppTabsProps> = ({}) => {
                         iconName = "cards-outline";
                         return <MaterialCommunityIcons name={iconName} size={size} color={color}/>;
                     }
-
                     // You can return any component that you like here!
                 },
-            })}
-            tabBarOptions={{
                 activeTintColor: '#577fc0',
                 inactiveTintColor: 'gray',
-                showLabel: false
-            }}
+            })}
         >
-            <Tabs.Screen name='Home' component={HomeStack}/>
-            <Tabs.Screen name='Swipe' component={SwipeStack}/>
-            <Tabs.Screen name='Search' component={SearchStack}/>
+            <Tabs.Screen 
+                name='Home' 
+                component={HomeStack}
+                options={{
+                    headerShown: false,
+                    tabBarShowLabel: false
+                }}/>
+            <Tabs.Screen 
+                name='Swipe' 
+                component={SwipeStack}
+                options={{
+                    headerShown: false,
+                    tabBarShowLabel: false
+                }}/>
+            <Tabs.Screen 
+                name='Search' 
+                component={SearchStack}
+                options={{
+                    headerShown: false,
+                    tabBarShowLabel: false
+                }}/>
             
         </Tabs.Navigator>
     );

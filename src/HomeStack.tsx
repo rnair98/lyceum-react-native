@@ -4,7 +4,6 @@ import { useContext, useEffect, useRef, useState } from 'react'
 import { Center } from './Center';
 import { Button, FlatList, Text, TouchableOpacity } from 'react-native';
 import { AuthContext } from './AuthProvider';
-import faker from "faker";
 import { HomeParamList, HomeStackNavProps } from './HomeParamList';
 import { addProductRoutes } from './addProductRoutes';
 import DashBoard from '../screens/Dashboard';

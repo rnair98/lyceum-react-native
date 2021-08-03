@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import TinderCard from "react-tinder-card";
-import "./styling/Cards.css";
+import "../src/styling/Cards.css";
 import {Tag,Text} from "@jrobins/bulma-native";
 import { Ionicons } from '@expo/vector-icons'; 
 import axios from '../axios';

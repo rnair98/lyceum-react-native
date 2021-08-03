@@ -1,10 +1,6 @@
 import * as React from 'react';
 import { useContext, useEffect } from 'react';
-import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
-import SplashScreen from '../screens/Splash';
-import LoginScreen from "../screens/Login";
-import { AuthParamList } from './AuthParamList';
 import { Center } from './Center';
 import { ActivityIndicator } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
