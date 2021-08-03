@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { Button, FlatList, Text, TouchableOpacity, Image } from "react-native";
+import { Button, FlatList, Text, TouchableOpacity, Image, View } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { SearchParamList, SearchStackNavProps } from "./SearchParamList";
 import { Center } from "./Center";
@@ -44,14 +44,20 @@ function Search({ navigation }: SearchStackNavProps<"Search">){
 
 export const SearchStack: React.FC<SearchStackProps> = ({navigation}: DrawerNavProps<"Drawer">) => {
     return (
-        <Stack.Navigator initialRouteName="Search">
+        <Stack.Navigator 
+            initialRouteName="Search"
+            screenOptions={{
+                cardStyle: {backgroundColor: '#becdf0'}
+            }}>
             <Stack.Screen 
                 name='Search' 
                 component={Search}
                 options = {{
                     headerTitle: () => {
                         return (
-                            <FontAwesome5 name="university" size="2em" color="#95b2f2"/>
+                            <View style={{paddingTop:40}}>
+                                <FontAwesome5 name="university" size="2em" color="#95b2f2"/>
+                            </View>
                         );
                     },
                     headerTransparent: true,
@@ -61,13 +67,14 @@ export const SearchStack: React.FC<SearchStackProps> = ({navigation}: DrawerNavP
                             // <TouchableOpacity onPress={() => {logout()}}>
                             //     <Text style={ {paddingRight: 8 }}>LOGOUT</Text>
                             // </TouchableOpacity>
-
-                            <TouchableOpacity style={{alignSelf: "flex-end",justifyContent: "center",padding:10}} onPress={navigation.openDrawer}>
-                                <Image 
-                                    style={{height: 43,width: 43,borderRadius: 43 / 2}} 
-                                    source={{uri: "http://dev.villanovaice.com/wp-content/uploads/2015/02/Elon-Musk-300x300.jpg"}}
-                                />
-                            </TouchableOpacity>
+                            <View style={{paddingTop: 40, paddingRight: 20 }}>
+                                <TouchableOpacity style={{alignSelf: "flex-end",justifyContent: "center"}} onPress={navigation.openDrawer}>
+                                    <Image 
+                                        style={{height: 43,width: 43,borderRadius: 43 / 2}} 
+                                        source={{uri: "http://dev.villanovaice.com/wp-content/uploads/2015/02/Elon-Musk-300x300.jpg"}}
+                                    />
+                                </TouchableOpacity>
+                            </View>
                         );
                     }
                 }}

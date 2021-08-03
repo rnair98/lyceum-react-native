@@ -48,13 +48,5 @@
     "@types/react-native": "~0.63.2",
     "typescript": "~4.0.0"
   },
-  "private": true,
-  "precommit": {
-    "run": "eslint"
-  },
-  "pre-commit": [
-    "lint",
-    "validate",
-    "test"
-  ]
+  "private": true
 }
