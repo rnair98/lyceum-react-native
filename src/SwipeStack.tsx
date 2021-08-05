@@ -3,7 +3,6 @@ import * as React from 'react';
 import { useContext, useEffect, useRef, useState } from 'react'
 import { View, Button, FlatList, Text, TouchableOpacity, Image, ImageBackground } from 'react-native';
 import { AuthContext } from './AuthProvider';
-import faker from "faker";
 import { addProductRoutes } from './addProductRoutes';
 import DashBoard from '../screens/DashBoard';
 import { SwipeParamList, SwipeStackNavProps } from './SwipeParamList';
@@ -20,7 +19,7 @@ interface SwipeStackProps {
 const Stack = createStackNavigator<SwipeParamList>();
 
 
-function Swipe({navigation} : SwipeStackNavProps<"Swipe">) {
+export function Swipe({navigation} : SwipeStackNavProps<"Swipe">) {
     return (
         <View style={{backgroundColor: "transparent"}}>
             <Cards></Cards>

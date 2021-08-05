@@ -4,8 +4,10 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { AppParamList } from './AppParamList';
 import { AntDesign,FontAwesome,Ionicons,MaterialCommunityIcons } from "@expo/vector-icons";
 import { HomeStack } from './HomeStack';
-import { SearchStack } from './SearchStack';
-import { SwipeStack } from './SwipeStack';
+import { Search, SearchStack } from './SearchStack';
+import { Swipe, SwipeStack } from './SwipeStack';
+import { ProfileStack } from './ProfileStack';
+import DashBoard from '../screens/Dashboard';
 
 
 interface AppTabsProps {}
@@ -29,12 +31,17 @@ export const AppTabs: React.FC<AppTabsProps> = ({}) => {
                     } else if (route.name === 'Swipe') {
                         iconName = "cards-outline";
                         return <MaterialCommunityIcons name={iconName} size={size} color={color}/>;
-                    }
+                    } 
+                    
+                    // else if (route.name === 'Profile'){
+                    //     iconName = "ios-person-outline";
+                    //     return <Ionicons name={iconName} size={size} color={color}/>
+                    // }
                     // You can return any component that you like here!
                 },
                 activeTintColor: '#577fc0',
                 inactiveTintColor: 'gray',
-            })}
+            })}   
         >
             <Tabs.Screen 
                 name='Home' 
@@ -57,6 +64,13 @@ export const AppTabs: React.FC<AppTabsProps> = ({}) => {
                     headerShown: false,
                     tabBarShowLabel: false
                 }}/>
+            {/* <Tabs.Screen 
+                name='Profile' 
+                component={ProfileStack}
+                options={{
+                    headerShown: false,
+                    tabBarShowLabel: false,
+                }}/> */}
             
         </Tabs.Navigator>
     );

@@ -4,8 +4,10 @@ import { RouteProp } from "@react-navigation/native"
 
 
 export type HomeParamList = {
-    Dash: undefined;
+    Home: undefined;
+    Search: undefined;
     Swipe: undefined;
+    Profile: undefined;
 };
 
 

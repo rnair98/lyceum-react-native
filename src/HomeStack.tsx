@@ -7,7 +7,7 @@ import { AuthContext } from './AuthProvider';
 import { HomeParamList, HomeStackNavProps } from './HomeParamList';
 import { addProductRoutes } from './addProductRoutes';
 import DashBoard from '../screens/Dashboard';
-
+import {ProfileStack} from '../src/ProfileStack';
 
 interface HomeStackProps {
     
@@ -19,14 +19,21 @@ const Stack = createStackNavigator<HomeParamList>();
 export const HomeStack: React.FC<HomeStackProps> = ({}) => {
     const {logout} = useContext(AuthContext);
     return (
-        <Stack.Navigator initialRouteName="Dash">
+        <Stack.Navigator initialRouteName="Home">
             {addProductRoutes(Stack)}
             <Stack.Screen 
-                name='Dash'
+                name='Home'
                 options = {{
                     headerShown: false
                 }}
                 component={DashBoard}
+            />
+            <Stack.Screen
+                name='Profile'
+                options = {{
+                    headerShown: false
+                }}
+                component={ProfileStack}
             />
         </Stack.Navigator>
     );

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import {
     useTheme,
     Avatar,
@@ -24,7 +24,7 @@ import { DrawerNavProps} from './DrawerParamList';
 interface DrawerProps{}
 
 
-export const DrawerContent: React.FC<DrawerProps> = ({navigation}: DrawerNavProps<"Drawer">) => {
+export const DrawerContent: React.FC<DrawerProps> = ({navigation}: DrawerNavProps<any>) => {
     const paperTheme = useTheme();
     const { logout} = useContext(AuthContext);
 
@@ -36,17 +36,18 @@ export const DrawerContent: React.FC<DrawerProps> = ({navigation}: DrawerNavProp
             <DrawerContentScrollView>
                 <View style={styles.drawerContent}>
                     <View style={styles.userInfoSection}>
-                        <View style={{flexDirection:'row',marginTop:15}}>
-                            <Avatar.Image
-                                source={{uri: 'http://dev.villanovaice.com/wp-content/uploads/2015/02/Elon-Musk-300x300.jpg'}}
-                                size={50}
-                            />
-                            <View style={{marginLeft:25, flexDirection: 'column'}}>
-                                <Title style={styles.title}>Elon Musk</Title>
-                                <Caption style={styles.caption}>@elonmusk</Caption>
+                        <TouchableOpacity onPress={() => {navigation.navigate('Profile')} }>
+                            <View style={{flexDirection:'row',marginTop:15}}>
+                                <Avatar.Image
+                                    source={{uri: 'http://dev.villanovaice.com/wp-content/uploads/2015/02/Elon-Musk-300x300.jpg'}}
+                                    size={50}
+                                />
+                                <View style={{marginLeft:25, flexDirection: 'column'}}>
+                                    <Title style={styles.title}>Elon Musk</Title>
+                                    <Caption style={styles.caption}>@elonmusk</Caption>
+                                </View>
                             </View>
-                        </View>
-
+                        </TouchableOpacity>
                         <View style={styles.row}>
                             <View style={styles.section}>
                                 <Paragraph style={[styles.paragraph, styles.caption]}>

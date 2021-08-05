@@ -13,7 +13,7 @@ interface SearchStackProps {}
 
 const Stack = createStackNavigator<SearchParamList>();
 
-function Search({ navigation }: SearchStackNavProps<"Search">){
+export function Search({ navigation }: SearchStackNavProps<"Search">){
     const [show, setShow] = useState(false);
     return(
         <Center>

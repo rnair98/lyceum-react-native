@@ -1,13 +1,14 @@
 import { DrawerNavigationProp } from "@react-navigation/drawer"
 import { RouteProp } from '@react-navigation/native';
-import { AppParamList } from "./AppParamList";
+import { HomeParamList } from "./HomeParamList";
+
 
 
 
 
 export type DrawerParamList = {
     Drawer: undefined
-} & AppParamList;
+} & HomeParamList;
 
 export type DrawerNavProps<T extends keyof DrawerParamList> = {
     navigation: DrawerNavigationProp<DrawerParamList,T>;

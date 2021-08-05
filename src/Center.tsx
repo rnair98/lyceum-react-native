@@ -9,7 +9,7 @@ export const Center: React.FC<CenterProps> = ({ children }) => {
       style={{
         flex: 1,
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
       }}
     >
       {children}
