@@ -1,0 +1,18 @@
+GET https://www.udacity.com/public-api/v1/courses HTTP/1.1
+
+# POST https://lyceum--backend.herokuapp.com/lyceum/Cards 
+# Server: Cowboy
+# Connection: keep-alive
+# X-Powered-By: Express
+# Access-Control-Allow-Origin: *
+# Content-Type: application/json; charset=utf-8
+# Content-Length: 768
+# Etag: W/"300-dRVjLa0Up4Kps/byAxNeHWI8i5o"
+# Date: Thu, 15 Jul 2021 21:31:27 GMT
+# Via: 1.1 vegur
+
+# {
+#     "name": "Introduction to Machine Learning using Microsoft Azure",
+#     "imgUrl": "https://www.udacity.com/www-proxy/contentful/assets/2y9b3o528xhq/q3unRzYDQ2L9ixjTYbI2t/652f278d4788a5e37e6d776c9e68a4cf/cre-382-Catalog_Image.png"
+# }
+

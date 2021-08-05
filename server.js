@@ -7,7 +7,7 @@ import Cards from "./dbCards.js";
 // App Config
 const app = express();
 const port = process.env.PORT || 8001;
-const connection_url = `mongodb+srv://admin:i2uyZHfZrc9W8hNu@cluster0.k78w7.mongodb.net/lyceum-db?retryWrites=true&w=majority`
+const connection_url = `mongodb+srv://admin:l3UNzWiuPlHJu7Kh@cluster0.k78w7.mongodb.net/lyceum-db?retryWrites=true&w=majority`
 
 // Middlewares
 app.use(express.json());
