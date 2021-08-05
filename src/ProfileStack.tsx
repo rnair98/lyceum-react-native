@@ -11,7 +11,9 @@ import { useTheme } from '@react-navigation/native';
 import { AntDesign,FontAwesome5,Ionicons,MaterialCommunityIcons } from "@expo/vector-icons";
 import { ButtonTab } from '../components/ButtonTabs';
 import { Paper } from '@material-ui/core';
-import tailwind from 'tailwind-rn';
+import ProfileCard from '../components/ProfileCard.tsx';
+import axios from '../axios';
+
 
 
 interface ProfileStackProps {}
@@ -29,6 +31,17 @@ function Profile({navigation} : ProfileStackNavProps<"Profile">) {
         {name: "Reviews", position: 4}
     ];
 
+    const [courses, setCourses] = useState([]);
+    useEffect(() => {
+        async function fetchData() {
+            const req = await axios.get('/lyceum/cards');
+            
+            setCourses(req.data)
+        }
+
+        fetchData();
+    }, []); 
+
     return(
         <><View style={styles.container}>
             <Image
@@ -43,30 +56,17 @@ function Profile({navigation} : ProfileStackNavProps<"Profile">) {
                 }]}>
                     <Animatable.View
                         animation="fadeInUpBig">
+                        <Center>
 
-                        <View style={tailwind("flex flex-col items-center justify-center min-h-screen bg-center bg-cover")}>
-                                <View style={tailwind('max-w-3xl w-full mx-auto z-4')}>
-                                    <View style={tailwind('flex flex-col')}>
-                                        <View style={tailwind('bg-white border border-white shadow-lg  rounded-3xl p-4 m-4')}>
-                                            <View style={tailwind('flex-row sm:flex')}>
-                                                <View style={tailwind('relative h-32 w-32   sm:mb-0 mb-1')}>
-                                                    <Image style={tailwind(' w-32 h-32 object-cover rounded-2xl')} source={require('../assets/logo.png')}/>
-                                                </View>
-                                                <View style={tailwind('flex flex-row items-baseline')}>
-                                                            <Text style={tailwind('text-lg text-gray-800 font-bold leading-none justify-start ml-8')}>
-                                                            Introduction to Machine Learning</Text>
-                                                    <View style={tailwind('flex pt-2 ml-12 text-sm text-gray-500 justify-end')}>
-                                                        <TouchableOpacity style={tailwind('flex-no-shrink bg-gray-400 hover:bg-gray-500 px-5 py-2 text-xs shadow-sm hover:shadow-lg font-medium tracking-wider hover:border-gray-500 text-black rounded-full transition ease-in duration-300')}>
-                                                            GO TO COURSE
-                                                        </TouchableOpacity>
-                                                    </View>
-                                                </View>
-                                            </View>
-                                        </View>
-                                    </View>
-                                </View>
-                        </View>
+                        {courses.map(course => (
+                            <ProfileCard name={course.name}
+                ))}
 
+
+
+
+
+                        </Center>
                     </Animatable.View>
                 </ScrollView>
             </SafeAreaView></>

@@ -32,15 +32,10 @@ export default function ImgMediaCard() {
   const classes = useStyles();
 
   return (
-        <View style={{
-            position: "relative",
-            justifyContent:"space-around", 
-            alignSelf: "center",
-            flexDirection:"column",
-        }}>
+        <View>
             {courses.map((course, idx) => (
                 <Card style={{
-                    width:wp("80%"),
+                    width:wp("85%"),
                     height:hp("15%"),
                     marginBottom: 20,
                 }}>

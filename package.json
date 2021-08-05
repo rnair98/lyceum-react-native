@@ -24,7 +24,7 @@
       "git add"
     ]
   },
-"husky": {
+  "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
@@ -42,37 +42,40 @@
     "@react-navigation/stack": "^6.0.0",
     "@types/styled-components": "^5.1.11",
     "@types/styled-components-react-native": "^5.1.1",
+    "autoprefixer": "^10.3.1",
     "eslint": "^7.32.0",
     "expo": "^42.0.3",
     "expo-constants": "~11.0.1",
     "expo-status-bar": "~1.0.4",
-    "faker": "^5.5.3",
     "husky": "^7.0.1",
     "jest": "^27.0.6",
     "lint-staged": "^11.1.1",
+    "postcss": "^8.3.6",
     "pre-commit": "^1.2.2",
     "prettier": "^2.3.2",
-    "react": "16.13.1",
+    "react": "^17.0.2",
     "react-dom": "16.13.1",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
+    "react-native": "^0.64.2",
     "react-native-animatable": "^1.3.3",
     "react-native-apple-header": "^0.1.1",
     "react-native-css": "^2.1.2",
-    "react-native-gesture-handler": "^1.10.3",
+    "react-native-gesture-handler": "~1.10.2",
     "react-native-imaged-carousel-card": "^0.1.1",
     "react-native-linear-gradient": "^2.5.6",
     "react-native-paper": "^4.9.2",
-    "react-native-reanimated": "^2.2.0",
+    "react-native-reanimated": "~2.2.0",
     "react-native-responsive-screen": "^1.4.2",
     "react-native-vector-icons": "^8.1.0",
     "react-native-web": "~0.13.12",
     "react-tinder-card": "^1.4.0",
-    "styled-components": "^5.3.0"
+    "styled-components": "^5.3.0",
+    "tailwind-rn": "^3.0.1",
+    "tailwindcss": "^2.2.7"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",
-    "@types/react": "~16.9.35",
-    "@types/react-native": "~0.63.2",
+    "@types/react": "^17.0.15",
+    "@types/react-native": "^0.64.12",
     "typescript": "~4.0.0"
   },
   "private": true

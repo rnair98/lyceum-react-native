@@ -1,5 +1,6 @@
 import 'react-native-gesture-handler';
-import React, { FC } from 'react';
+import * as React from 'react';
+import { FC } from 'react';
 import Constants from 'expo-constants';
 import { Providers } from "./src/Providers";
 import { DrawerNavProps, DrawerParamList } from './src/DrawerParamList';

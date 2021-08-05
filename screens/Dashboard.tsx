@@ -29,8 +29,11 @@ import AppleHeader from "react-native-apple-header";
 import { DrawerNavProps } from '../src/DrawerParamList';
 import CarouselCards from '../components/CarouselCards';
 import DashCards from '../components/DashCards';
+import { ButtonTab } from '../components/ButtonTabs';
 
-function DashBoard ({navigation}:DrawerNavProps<'Drawer'>) {
+
+
+function DashBoard ({navigation}:DrawerNavProps<any>) {
 
     let [fontsLoaded] = useFonts({
         Roboto_400Regular,
@@ -40,9 +43,17 @@ function DashBoard ({navigation}:DrawerNavProps<'Drawer'>) {
       });
     
     const { colors } = useTheme();
+    const buttonNames = [
+        {name: "Top 10 Courses", position: 1},
+        {name: "Recommended Courses", position: 2},
+        {name: "Courses I Like", position: 3},
+        {name: "Courses Popular with Friends", position: 4}
+    ];
+    
 
     return (
         <View style={styles.container}>
+        <ImageBackground source={require('../assets/dash.png')} style={styles.backgroundImage}/> 
         <AppleHeader
             imageSource={{
                 uri: "http://dev.villanovaice.com/wp-content/uploads/2015/02/Elon-Musk-300x300.jpg",
@@ -61,28 +72,36 @@ function DashBoard ({navigation}:DrawerNavProps<'Drawer'>) {
                 width: "251px",
             }}
             containerStyle={{
-                backgroundColor: "#becdf0", 
+                backgroundColor: "transparent", 
                 flexDirection: 'row',
                 padding: 20,
                 alignItems: "flex-start",
-                justifyContent: "space-between"}}
+                justifyContent: "space-between",
+                bottom: 101,}}
 
             onPress={navigation.openDrawer}
         />
         <CarouselCards/>
-        <ImageBackground source={require('../assets/dash.png')} style={styles.backgroundImage}/> 
         {/* <View style={styles.header}>
             <Text style={[styles.title, {
             color: colors.text
             }]}>Dashboard</Text>
             <Text style={styles.text}>Insert Dashboard here.</Text>
         </View> */}
-        <SafeAreaView style={{flex: 3}}>
-            <ScrollView>
-                <Animatable.View 
-                    style={[styles.footer, {
+
+
+
+        <ButtonTab data={buttonNames}/>
+        
+        <SafeAreaView style={{flex: 3, justifyContent: "center", alignItems: "center", backgroundColor: "transparent"}}>
+            <ScrollView style={[styles.footer, {
                         backgroundColor: colors.background
                     }]}
+                    contentContainerStyle={{
+                        alignItems: "center",
+                        justifyContent: "center",
+                    }}>
+                <Animatable.View 
                     animation="fadeInUpBig"
                 >
                     <Center>
@@ -121,28 +140,32 @@ const styles = StyleSheet.create({
   },
   backgroundImage: {
     flex: 1,
-    width:"100%",
-    height:"200%",
+    height: height,
+    justifyContent: "center",
+    alignItems: "center",
   },
   header: {
-    justifyContent: 'flex-end',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
     paddingHorizontal: 20,
     paddingTop: 20,
+    paddingBottom: 20,
     fontFamily: "FiraSansCondensed_400Regular",
     color: "black",
     fontSize: 45,
     letterSpacing: 0,
     backgroundColor: "transparent",
-    position: "absolute"
+    position: "relative"
   },
   footer: {
-      flex: 2,
+      flex: 1,
       backgroundColor: '#fff',
       borderTopLeftRadius: 50,
       borderTopRightRadius: 50,
       paddingVertical: 50,
       paddingHorizontal: 40,
-      width: "100%",
+      width: "90%",
+      flexDirection: 'column',
   },
   logo: {
       width: height_logo,
@@ -159,7 +182,7 @@ const styles = StyleSheet.create({
   },
   button: {
       alignItems: 'flex-end',
-      marginTop: 30
+      marginTop: 30,
   },
   signIn: {
       backgroundColor: '#05375a',

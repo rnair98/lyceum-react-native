@@ -18,7 +18,8 @@ const CarouselCards = () => {
             alignItems: "center",
             justifyContent: "center",
             flexDirection: "row",
-            backgroundColor: "#becdf0"
+            backgroundColor: "#transparent",
+            bottom: 80,
           }}
         >
           <ImagedCarouselCard
@@ -30,10 +31,16 @@ const CarouselCards = () => {
               uri:
                 "https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://d15cw65ipctsrr.cloudfront.net/32/d719a2d0d946d59e1151bc10ec29f5/Specialization-Certificate-Emblem---IDS---600x600.png?auto=format%2Ccompress&dpr=1&w=268"
             }}
+            text="Course"
+            overlayBorderBottomLeftRadius={0}
+            overlayBorderBottomRightRadius={0}
           />
           <View style={{ marginTop: 20 }}>
             <ImagedCarouselCard
               source={{uri:"https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://d15cw65ipctsrr.cloudfront.net/a4/079d5e7c7b45ac9107f22bfcfeab91/Specialization-logo.png?auto=format%2Ccompress&dpr=1&w=268"}}
+              text="Course"
+              overlayBorderBottomLeftRadius={0}
+              overlayBorderBottomRightRadius={0}
               />
           </View>
 
@@ -47,6 +54,9 @@ const CarouselCards = () => {
                 uri:
                   "https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://d15cw65ipctsrr.cloudfront.net/c8/8d6df01eb311e6b5f5f786b289d8ba/pythondatascience_specialization_final.png?auto=format%2Ccompress&dpr=1&w=268"
               }}
+              text="Course"
+              overlayBorderBottomLeftRadius={0}
+              overlayBorderBottomRightRadius={0}
             />
           </View>
           <View style={{ marginTop: 20 }}>
@@ -55,6 +65,9 @@ const CarouselCards = () => {
               height={200}
               width={200}
               style={{borderRadius: 30}}
+              text="Course"
+              overlayBorderBottomLeftRadius={0}
+              overlayBorderBottomRightRadius={0}
               />
           </View>
         </View>
