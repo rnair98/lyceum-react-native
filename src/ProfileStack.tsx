@@ -58,13 +58,18 @@ function Profile({navigation} : ProfileStackNavProps<"Profile">) {
                         animation="fadeInUpBig">
                         <Center>
 
-                        {courses.map(course => (
-                            <ProfileCard name={course.name}
-                ))}
-
-
-
-
+                        {courses.map(course => {
+                            return course.instructor === "Andrew Ng" ?
+                                <ProfileCard 
+                                    name={course.name}
+                                    platform={course.platform}
+                                    instructor={course.instructor}
+                                    imgUrl={course.imgUrl}
+                                    url={course.url}
+                                    affiliation={course.affiliation}
+                                />
+                            : null
+                        })}
 
                         </Center>
                     </Animatable.View>

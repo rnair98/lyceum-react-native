@@ -1,16 +1,18 @@
 import * as React from 'react';
-import {View, Text, Image, TouchableOpacity} from 'react-native';
+import {View, Text, Image, TouchableOpacity, Linking} from 'react-native';
 import tailwind from 'tailwind-rn';
 import { Feather } from "@expo/vector-icons";
 
 interface ProfileCard{
     name: string;
     platform: string;
-    creator: string;
+    instructor: string;
     imgUrl: string;
+    url: string;
+    affiliation: string;
 }
 
-export default function ProfileCard ({name,platform,creator,imgUrl}:ProfileCard){
+export default function ProfileCard ({name,platform,affiliation,instructor,imgUrl,url}:ProfileCard){
     return (
         <View style={tailwind("flex flex-col items-start justify-center min-h-screen bg-center bg-cover")}>  
             <View style={tailwind("max-w-4xl w-full mx-auto z-10")}>
@@ -18,18 +20,18 @@ export default function ProfileCard ({name,platform,creator,imgUrl}:ProfileCard)
                     <View style={tailwind("bg-white border border-white shadow-lg  rounded-3xl p-4 m-4")}>
                         <View style={tailwind("flex-row sm:flex")}>
                             <View style={tailwind(" relative h-32 w-32   sm:mb-0 mb-1")}>
-                                <Image source={require(imgUrl)} style={tailwind(" w-32 h-32 object-cover rounded-2xl")}/>
+                                <Image source={imgUrl} style={tailwind(" w-32 h-32 object-cover rounded-2xl")}/>
                             </View>
                             <View style={tailwind("flex flex-row sm:ml-2 items-baseline")}>
                                 <View style={tailwind("flex items-baseline justify-evenly sm:mt-2 pl-4")}>
                                     <View style={tailwind("flex items-baseline")}>
                                         <View style={tailwind("flex flex-col")}>
                                             <View style={tailwind("w-full flex-row text-lg text-gray-800 font-bold leading-none")}>
-                                                {name}
+                                                <Text onPress={() => Linking.openURL(url)}>{name}</Text>
                                                 <Feather name="check-circle" size={15} color="green" style={tailwind("pl-6 pt-2 opacity-60")}/>
                                             </View>
                                             <View style={tailwind("flex-auto text-gray-500 my-1")}>
-                                                <span style={tailwind("mr-3 ")}>{platform}</span><span style={tailwind("mr-3 border-r border-gray-200  max-h-0")}></span><span>{creator}</span>
+                                                <span style={tailwind("mr-3 ")}>{platform}</span><span style={tailwind("mr-3 border-r border-gray-200  max-h-0")}></span><span>{instructor} @ {affiliation}</span>
                                             </View>
                                             <View style={tailwind("flex flex-col items-baseline")}>
                                                 <View style={tailwind("flex-row")}>
