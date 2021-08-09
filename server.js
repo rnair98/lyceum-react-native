@@ -45,6 +45,18 @@ app.get('/lyceum/cards', (req, res) => {
     });
 });
 
+app.post('/lyceum/likedCourses', (req, res) => {
+    const likedCourse = req.body;
+
+    Cards.create(likedCourse, (err, data) => {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            res.status(201).send(data);
+        }
+    });
+});
+
 
 // Listener
 app.listen(port, () => console.log(`listening on localhost: ${port}`));
