@@ -46,7 +46,12 @@ export default function DashCards() {
             "url": course.url,
             "affiliation": course.affiliation,
         }
-        axios.post('/lyceum/like', dataBody)
+        axios.post('/lyceum/likedCourses', dataBody)
+            .then((response) => {
+                console.log(response);
+            }, (error) => {
+                console.log(error);
+            });          
     }
 
 
@@ -65,7 +70,11 @@ export default function DashCards() {
                                 {course.name}
                             </Typography>
                             <CardActions style={{}}>
-                                <Button size="small" color="primary" onClick={() => {console.log("Like!")}}>
+                                <Button size="small" color="primary" onClick={
+                                    () => {
+                                        like(course);
+                                    }
+                                }>
                                 <AntDesign name="like2" size={20}/>
                                 </Button>
                                 <Button size="small" color="primary"onClick={() => {console.log("Share!")}}>
