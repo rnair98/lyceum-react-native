@@ -53,7 +53,7 @@ npm install
 4. Start Expo Server
 
 ```
-expo start
+expo start -w
 ```
 
 ## Development
