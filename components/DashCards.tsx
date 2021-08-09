@@ -12,24 +12,43 @@ import {
     heightPercentageToDP as hp,
     widthPercentageToDP as wp,
   } from 'react-native-responsive-screen';
+import axios from '../axios';
+import {AntDesign, Feather} from '@expo/vector-icons';
 
+export default function DashCards() {
 
-const courses = [
-    { name: "Course1", description: "Enter Course Description Here" },
-    { name: "Course2", description: "Enter Course Description Here" },
-    { name: "Course3", description: "Enter Course Description Here" },
-    { name: "Course4", description: "Enter Course Description Here" },
-]
+    const [courses, setCourses] = React.useState([]);
+    React.useEffect(() => {
+        async function fetchData() {
+            const req = await axios.get('/lyceum/cards');
+            
+            setCourses(req.data)
+        }
 
-const useStyles = makeStyles({
-  root: {
-    maxWidth: 1000,
-    minWidth: 500
-  },
-});
+        fetchData();
+    }, []); 
 
-export default function ImgMediaCard() {
-  const classes = useStyles();
+    const useStyles = makeStyles({
+    root: {
+        maxWidth: 1000,
+        minWidth: 500
+    },
+    });
+
+    const classes = useStyles();
+
+    function like(course){
+        const dataBody = {
+            "name": course.name,
+            "platform": course.platform,
+            "instructor": course.instructor,
+            "imgUrl": course.imgUrl,
+            "url": course.url,
+            "affiliation": course.affiliation,
+        }
+        axios.post('/lyceum/like', dataBody)
+    }
+
 
   return (
         <View>
@@ -41,22 +60,27 @@ export default function ImgMediaCard() {
                 }}>
                     <CardActionArea>
                         <CardContent>
-                        <Typography gutterBottom variant="h6" component="h6">
-                            {course.name}
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                            {course.description}
-                        </Typography>
+                        <View style={{flexDirection:"row", alignItems:"flex-end", justifyContent: "space-between"}}>
+                            <Typography gutterBottom variant="h6" component="h6">
+                                {course.name}
+                            </Typography>
+                            <CardActions style={{}}>
+                                <Button size="small" color="primary" onClick={() => {console.log("Like!")}}>
+                                <AntDesign name="like2" size={20}/>
+                                </Button>
+                                <Button size="small" color="primary"onClick={() => {console.log("Share!")}}>
+                                <Feather name="share" size={20}/>
+                            </Button>
+                            </CardActions>
+                        </View>
+                        <View style={{paddingBottom:"50vh"}}>
+                            <Typography variant="body2" color="textSecondary" component="p">
+                                {typeof(course.description) === "string" ? course.description.split('\n')[0]: <></>}
+                            </Typography>
+                        </View>
                         </CardContent>
                     </CardActionArea>
-                    <CardActions>
-                        <Button size="small" color="primary">
-                        Bookmark
-                        </Button>
-                        <Button size="small" color="primary">
-                        Share
-                        </Button>
-                    </CardActions>
+
                 </Card>
             ))}
         </View>

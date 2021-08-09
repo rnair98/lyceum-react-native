@@ -30,20 +30,20 @@ function Cards() {
                     >
                         <div 
                         style={{backgroundColor: "rgb(255,255,255)", backgroundImage: `url(${course.imgUrl})`, 
-                        backgroundSize: "650px", backgroundRepeat: "no-repeat", backgroudPosition: "center", flex:1,flexDirection: "column",
+                        objectFit: "contain",backgroundSize: "555px", backgroundRepeat: "no-repeat", backgroundPosition: "top", flex:1,flexDirection: "column",
                         justifyContent: "flex-start"}}
                         className="card"
                         >
                             <h2>{course.name}</h2>
-                            <p id="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed porta feugiat efficitur. Ut nec pulvinar risus, non consequat nulla. In sagittis urna nec tortor porttitor, sit amet tincidunt ante commodo. Sed lobortis vitae erat ac tempus. Integer lobortis facilisis tempor. Ut vitae nunc vitae tellus ullamcorper pulvinar ac et elit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse elementum dapibus justo at congue. Donec luctus dictum ultricies......</p>
+                            <p id="description">{course.description}......</p>
                             <p id="author">
                             <Ionicons name="ios-person-circle-sharp" size={15} color="black" />                             
-                            &nbsp;Author Name</p>
+                            &nbsp;{course.instructor}</p>
                             <div>
                                 <Tag 
                                 rounded="true"
                                 style={{backgroundColor: "#5b8bd9",justifyContent:"center",width:"82px"}} >
-                                   <Text size="small" weight="medium" color="white"> Coursera </Text>
+                                   <Text size="small" weight="medium" color="white"> {course.platform} </Text>
                                 </Tag>
                             </div>
                         </div>
