@@ -13,20 +13,27 @@ import {
     widthPercentageToDP as wp,
   } from 'react-native-responsive-screen';
 import axios from '../axios';
-import {AntDesign, Feather} from '@expo/vector-icons';
+import {AntDesign, Feather, Ionicons} from '@expo/vector-icons';
 
 
 interface DashCardProps{
     likes: boolean;
+    matches: boolean;
 }
 
-export default function DashCards({likes}:DashCardProps) {
+export default function DashCards({likes,matches}:DashCardProps) {
 
     const [courses, setCourses] = React.useState([]);
     React.useEffect(() => {
         async function fetchData() {
             let req = null;
-            {likes ? req = await axios.get('/lyceum/likedcourses') : req = await axios.get('/lyceum/cards')};
+            if (likes === true) {
+                req = await axios.get('/lyceum/likedcourses');
+            } else if (matches === true) {
+                req = await axios.get('/lyceum/matches');
+            } else {
+                req = await axios.get('/lyceum/cards');
+            }
             
             setCourses(req.data)
         }
@@ -45,6 +52,7 @@ export default function DashCards({likes}:DashCardProps) {
 
     function like(course){
         const dataBody = {
+            "_id": course.id,
             "name": course.name,
             "platform": course.platform,
             "instructor": course.instructor,
@@ -62,6 +70,7 @@ export default function DashCards({likes}:DashCardProps) {
     }
 
 
+
   return (
         <View>
             {courses.map((course, idx) => (
@@ -77,8 +86,7 @@ export default function DashCards({likes}:DashCardProps) {
                                 {course.name}
                             </Typography>
                             <CardActions style={{}}>
-                                {likes ?
-                                    null :
+                                {likes === false && matches === false &&
                                     <Button size="small" color="primary" onClick={
                                         () => {
                                             like(course);
@@ -87,6 +95,35 @@ export default function DashCards({likes}:DashCardProps) {
                                         <AntDesign name="like2" size={20}/>
                                     </Button>
                                 }
+                                <Button size="small" color="primary"onClick={() => {
+                                    if (likes === true){
+                                        axios
+                                            .delete(`/lyceum/likedcourses/${course._id}`)
+                                            .then((response) => {
+                                                console.log(response);
+                                            }).catch((error) => {
+                                                console.log(error);
+                                            });
+                                    } else if (matches === true){
+                                        axios
+                                            .delete(`/lyceum/matches/${course._id}`)
+                                            .then((response) => {
+                                                console.log(response);
+                                            }).catch((error) => {
+                                                console.log(error);
+                                            });
+                                    } else {
+                                        axios
+                                            .delete(`/lyceum/cards/${course._id}`)
+                                            .then((response) => {
+                                                console.log(response);
+                                            }).catch((error) => {
+                                                console.log(error);
+                                                })
+                                    }
+                                }}>
+                                    <Ionicons name="ios-trash-outline" size={20}/>
+                                </Button>
                                 <Button size="small" color="primary"onClick={() => {console.log("Share!")}}>
                                     <Feather name="share" size={20}/>
                                 </Button>

@@ -19,14 +19,37 @@ function Cards() {
         fetchData();
     }, []); 
 
+    function match(course){
+        const dataBody = {
+            "_id" : course.id,
+            "name": course.name,
+            "platform": course.platform,
+            "instructor": course.instructor,
+            "imgUrl": course.imgUrl,
+            "url": course.url,
+            "affiliation": course.affiliation,
+            "description": course.description,
+        }
+        axios.post('/lyceum/matches', dataBody)
+            .then((response) => {
+                console.log(response);
+            }, (error) => {
+                console.log(error);
+            });          
+    }
+
+
     return (
         <div>
             <div className="Cards__cardContainer">
-                {courses.map(course => (
+                {courses.map((course,idx) => (
                     <TinderCard
                         className="swipe"
-                        key={course.name}
+                        key={idx}
                         preventSwipe={["up", "down"]}
+                        onSwipe={(direction) => {
+                            direction === "right" ? match(course) : console.log("swiped left!");
+                        }}
                     >
                         <div 
                         style={{backgroundColor: "rgb(255,255,255)", backgroundImage: `url(${course.imgUrl})`, 

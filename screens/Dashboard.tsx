@@ -35,10 +35,10 @@ import { ScrollTab } from '../components/scrollTabs';
 
 function DashBoard ({navigation}:DrawerNavProps<any>) {
 
-    function cards(likes: boolean){
+    function cards(likes: boolean, matches: boolean){
         return (
             <>
-            <DashCards likes={likes}/>
+            <DashCards likes={likes} matches={matches}/>
             <View style={styles.button}>
             <TouchableOpacity style={styles.signIn} onPress={()=>navigation.navigate('Swipe')}>
                 {/* <LinearGradient
@@ -58,7 +58,7 @@ function DashBoard ({navigation}:DrawerNavProps<any>) {
         );
     }
 
-    const Views = [<></>,cards(true),cards(false),cards(false),cards(false)];
+    const Views = [cards(false,true),cards(true,false),cards(false,false),cards(false,false),cards(false,false)];
 
     let [fontsLoaded] = useFonts({
         Roboto_400Regular,
