@@ -8,6 +8,7 @@ const cardSchema = mongoose.Schema({
     url: String,
     affiliation: String,
     description: String,
+    
 });
 
-export default mongoose.model('cards', cardSchema);
+export default mongoose.model('likedCourses', cardSchema);
