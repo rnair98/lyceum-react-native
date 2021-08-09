@@ -29,11 +29,33 @@ import AppleHeader from "react-native-apple-header";
 import { DrawerNavProps } from '../src/DrawerParamList';
 import CarouselCards from '../components/CarouselCards';
 import DashCards from '../components/DashCards';
-import { ButtonTab } from '../components/ButtonTabs';
-
+import { ButtonTab } from '../components/ButtonTab';
+import { ScrollTab } from '../components/scrollTabs';
 
 
 function DashBoard ({navigation}:DrawerNavProps<any>) {
+
+    const cards = (
+        <>
+        <DashCards/>
+        <View style={styles.button}>
+        <TouchableOpacity style={styles.signIn} onPress={()=>navigation.navigate('Swipe')}>
+            {/* <LinearGradient
+                colors={['#08d4c4', '#01ab9d']}
+                style={styles.signIn}
+            > */}
+                <Text style={styles.textSign}>All Courses</Text>
+                <MaterialIcons 
+                    name="navigate-next"
+                    color="#fff"
+                    size={20}
+                />
+            {/* </LinearGradient> */}
+        </TouchableOpacity>
+        </View>
+        </>
+    );
+    const Views = [cards,cards,cards,cards]
 
     let [fontsLoaded] = useFonts({
         Roboto_400Regular,
@@ -49,7 +71,6 @@ function DashBoard ({navigation}:DrawerNavProps<any>) {
         {name: "Courses I Like", position: 3},
         {name: "Courses Popular with Friends", position: 4}
     ];
-    
 
     return (
         <View style={styles.container}>
@@ -82,50 +103,10 @@ function DashBoard ({navigation}:DrawerNavProps<any>) {
             onPress={navigation.openDrawer}
         />
         <CarouselCards/>
-        {/* <View style={styles.header}>
-            <Text style={[styles.title, {
-            color: colors.text
-            }]}>Dashboard</Text>
-            <Text style={styles.text}>Insert Dashboard here.</Text>
-        </View> */}
 
+        <ScrollTab data={buttonNames} views={Views}/>
+        </View>
 
-
-        <ButtonTab data={buttonNames}/>
-        
-        <SafeAreaView style={{flex: 3, justifyContent: "center", alignItems: "center", backgroundColor: "transparent"}}>
-            <ScrollView style={[styles.footer, {
-                        backgroundColor: colors.background
-                    }]}
-                    contentContainerStyle={{
-                        alignItems: "center",
-                        justifyContent: "center",
-                    }}>
-                <Animatable.View 
-                    animation="fadeInUpBig"
-                >
-                    <Center>
-                        <DashCards/>
-                        <View style={styles.button}>
-                        <TouchableOpacity style={styles.signIn} onPress={()=>navigation.navigate('Swipe')}>
-                            {/* <LinearGradient
-                                colors={['#08d4c4', '#01ab9d']}
-                                style={styles.signIn}
-                            > */}
-                                <Text style={styles.textSign}>All Courses</Text>
-                                <MaterialIcons 
-                                    name="navigate-next"
-                                    color="#fff"
-                                    size={20}
-                                />
-                            {/* </LinearGradient> */}
-                        </TouchableOpacity>
-                        </View>
-                    </Center>
-                </Animatable.View>
-            </ScrollView>
-        </SafeAreaView>
-      </View>
     );
 };
 

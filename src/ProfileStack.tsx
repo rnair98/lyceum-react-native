@@ -9,10 +9,12 @@ import { Center } from './Center';
 import * as Animatable from 'react-native-animatable';
 import { useTheme } from '@react-navigation/native';
 import { AntDesign,FontAwesome5,Ionicons,MaterialCommunityIcons } from "@expo/vector-icons";
-import { ButtonTab } from '../components/ButtonTabs';
-import { Paper } from '@material-ui/core';
+import { ButtonTab } from '../components/ButtonTab';
+import { Paper, Tab, Tabs } from '@material-ui/core';
 import ProfileCard from '../components/ProfileCard.tsx';
 import axios from '../axios';
+import tailwind from 'tailwind-rn';
+import {ScrollTab} from '../components/scrollTabs';
 
 
 
@@ -32,6 +34,46 @@ function Profile({navigation} : ProfileStackNavProps<"Profile">) {
     ];
 
     const [courses, setCourses] = useState([]);
+
+    const [value, setValue] = useState(0);
+
+    const handleChange = (event, newValue) => {
+      setValue(newValue);
+    };
+
+    let selectedTab = null;
+
+    const Views = [
+        courses.map((course: { instructor: string; name: any; platform: any; imgUrl: any; url: any; affiliation: any; }) => {
+            return course.instructor === "Andrew Ng" ?
+                <ProfileCard 
+                    name={course.name}
+                    platform={course.platform}
+                    instructor={course.instructor}
+                    imgUrl={course.imgUrl}
+                    url={course.url}
+                    affiliation={course.affiliation}
+                />
+            : null
+         } ),
+
+        <>
+        <View style={tailwind("flex-auto pb-4 mx-20")}>
+            <Text style={tailwind("h3 text-left")}>About</Text>
+            <Text style={tailwind("text-left")}>South African-born American entrepreneur who cofounded the electronic-payment firm PayPal and formed SpaceX, maker of launch vehicles and spacecraft. He was also one of the first significant investors in, as well as chief executive officer of, the electric car manufacturer Tesla.</Text>
+        </View>
+        <View style={tailwind("flex-auto pb-4 mx-20")}>
+            <Text style={tailwind("h3 text-left")}>Interests</Text>
+            <Text style={tailwind("text-left")}>Blog Writing, Reading, Martial Arts, Meditation, Gaming, Backpacking, Listening to Podcasts/Audiobooks, Wilderness Exploration, Photography, Street Food, Exploring Other Cultures, Chess, Languages, Puzzles, Movies, Stand-Up Comedy, Writing, Basketball</Text>
+        </View>
+        <View style={tailwind("flex-auto pb-4 mx-20 text-left")}>
+         <Text style={tailwind("h3")}>Contact</Text>
+         <Text>Twitter</Text>
+        </View> 
+        </>
+
+    ]
+
     useEffect(() => {
         async function fetchData() {
             const req = await axios.get('/lyceum/cards');
@@ -42,42 +84,20 @@ function Profile({navigation} : ProfileStackNavProps<"Profile">) {
         fetchData();
     }, []); 
 
+
     return(
-        <><View style={styles.container}>
+        <>
+        <View style={styles.container}>
             <Image
                 source={require('../assets/musk.png')}
                 style={styles.logo}
                 resizeMode="stretch" />
+            <Text style={styles.header}>@elonmusk</Text>
         </View>
-        <ButtonTab data={buttonNames}/>
-        <SafeAreaView style={{flex: 3, justifyContent: "flex-start", alignItems: "center", backgroundColor: "transparent"}}>
-                <ScrollView style={[styles.footer, {
-                    backgroundColor: colors.background
-                }]}>
-                    <Animatable.View
-                        animation="fadeInUpBig">
-                        <Center>
-
-                        {courses.map(course => {
-                            return course.instructor === "Andrew Ng" ?
-                                <ProfileCard 
-                                    name={course.name}
-                                    platform={course.platform}
-                                    instructor={course.instructor}
-                                    imgUrl={course.imgUrl}
-                                    url={course.url}
-                                    affiliation={course.affiliation}
-                                />
-                            : null
-                        })}
-
-                        </Center>
-                    </Animatable.View>
-                </ScrollView>
-            </SafeAreaView></>
+        <ScrollTab data={buttonNames} views={Views}/>
+        </>
 );
 }
-
 const {height} = Dimensions.get("screen");
 const height_logo = height * 0.2;
 
@@ -110,10 +130,10 @@ const styles = StyleSheet.create({
         paddingTop: 20,
         fontFamily: "FiraSansCondensed_400Regular",
         color: "black",
-        fontSize: 45,
-        letterSpacing: 0,
+        fontSize: 25,
+        letterSpacing: 1,
         backgroundColor: "transparent",
-        position: "absolute"
+        position: "relative"
       },
       footer: {
         flex: 1,
@@ -192,5 +212,4 @@ export const ProfileStack: React.FC<ProfileStackProps> = ({navigation}: ProfileS
         </Stack.Navigator>
     );
 }
-
 

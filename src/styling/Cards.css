@@ -14,7 +14,7 @@
     font-family: FiraSansCondensed_300Light;
     font-size: 20px;
     position: absolute;
-    margin-top: 19.5em;
+    margin-top: 18em;
     margin-left: -0.3em;
 }
 #description {
@@ -23,7 +23,7 @@
     font-family: FiraSansCondensed_300Light;
     font-size: 12px;
     position: absolute;
-    margin-top: 37em;
+    margin-top: 33em;
     margin-left: -0.5em;
     margin-right: 1em;
 }
@@ -34,7 +34,7 @@
     font-size: 11px;
     position: absolute;
     margin-top: 50em;
-    margin-left: -0.8em;
+    margin-horizontal: auto;
 }
 
 

@@ -7,6 +7,7 @@ const cardSchema = mongoose.Schema({
     platform: String,
     url: String,
     affiliation: String,
+    description: String,
     
 });
 
