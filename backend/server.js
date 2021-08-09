@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import Cors from 'cors';
 
 import Cards from "./dbCards.js";
-import Likes from "./dblikedCourses";
+import Likes from "./dblikedCourses.js";
 
 // App Config
 const app = express();
