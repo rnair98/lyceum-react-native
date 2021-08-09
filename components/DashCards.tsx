@@ -7,7 +7,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { SafeAreaView, ScrollView, View, StyleSheet } from 'react-native';
+import { SafeAreaView, ScrollView, View, StyleSheet, Text, Linking } from 'react-native';
 import {
     heightPercentageToDP as hp,
     widthPercentageToDP as wp,
@@ -82,7 +82,7 @@ export default function DashCards({likes,matches}:DashCardProps) {
                         <CardContent>
                         <View style={{flexDirection:"row", alignItems:"flex-end", justifyContent: "space-between"}}>
                             <Typography gutterBottom variant="h6" component="h6">
-                                {course.name}
+                            <Text onPress={() => Linking.openURL(course.url)}>{course.name}</Text>
                             </Typography>
                             <CardActions style={{}}>
                                 {likes === false && matches === false &&
@@ -94,35 +94,11 @@ export default function DashCards({likes,matches}:DashCardProps) {
                                         <AntDesign name="like2" size={20}/>
                                     </Button>
                                 }
-                                <Button size="small" color="primary"onClick={() => {
-                                    if (likes === true){
-                                        axios
-                                            .delete(`/lyceum/likedcourses/${course._id}`)
-                                            .then((response) => {
-                                                console.log(response);
-                                            }).catch((error) => {
-                                                console.log(error);
-                                            });
-                                    } else if (matches === true){
-                                        axios
-                                            .delete(`/lyceum/matches/${course._id}`)
-                                            .then((response) => {
-                                                console.log(response);
-                                            }).catch((error) => {
-                                                console.log(error);
-                                            });
-                                    } else {
-                                        axios
-                                            .delete(`/lyceum/cards/${course._id}`)
-                                            .then((response) => {
-                                                console.log(response);
-                                            }).catch((error) => {
-                                                console.log(error);
-                                                })
-                                    }
-                                }}>
-                                    <Ionicons name="ios-trash-outline" size={20}/>
-                                </Button>
+                                {(likes === true || matches === true) &&
+                                    <Button size="small" color="primary"onClick={() => {console.log("Deleted!")}}>
+                                        <Ionicons name="ios-trash-outline" size={20}/>
+                                    </Button>
+                                }
                                 <Button size="small" color="primary"onClick={() => {console.log("Share!")}}>
                                     <Feather name="share" size={20}/>
                                 </Button>

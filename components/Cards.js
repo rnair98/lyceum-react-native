@@ -37,7 +37,6 @@ function Cards() {
             });          
     }
 
-
     return (
         <div>
             <div className="Cards__cardContainer">
@@ -52,7 +51,7 @@ function Cards() {
                     >
                         <div 
                         style={{backgroundColor: "rgb(255,255,255)", backgroundImage: `url(${course.imgUrl})`, 
-                        objectFit: "contain",backgroundSize: "555px", backgroundRepeat: "no-repeat", backgroundPosition: "top", flex:1,flexDirection: "column",
+                        objectFit: "contain",backgroundSize: "300px", backgroundRepeat: "no-repeat", backgroundPosition: "top", flex:1,flexDirection: "column",
                         justifyContent: "flex-start"}}
                         className="card"
                         >
