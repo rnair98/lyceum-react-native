@@ -4,6 +4,7 @@ import Cors from 'cors';
 
 import Cards from "./dbCards.js";
 import Likes from "./dblikedCourses.js";
+import Matches from "./dbMatches.js";
 
 // App Config
 const app = express();
@@ -60,6 +61,28 @@ app.post('/lyceum/likedcourses', (req, res) => {
 
 app.get('/lyceum/likedcourses', (req, res) => {
     Likes.find((err, data) => {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            res.status(200).send(data);
+        }
+    });
+});
+
+app.post('/lyceum/matches', (req, res) => {
+    const match = req.body;
+
+    Matches.create(match, (err, data) => {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            res.status(201).send(data);
+        }
+    });
+});
+
+app.get('/lyceum/matches', (req, res) => {
+    Matches.find((err, data) => {
         if (err) {
             res.status(500).send(err);
         } else {

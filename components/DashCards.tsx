@@ -15,12 +15,18 @@ import {
 import axios from '../axios';
 import {AntDesign, Feather} from '@expo/vector-icons';
 
-export default function DashCards() {
+
+interface DashCardProps{
+    likes: boolean;
+}
+
+export default function DashCards({likes}:DashCardProps) {
 
     const [courses, setCourses] = React.useState([]);
     React.useEffect(() => {
         async function fetchData() {
-            const req = await axios.get('/lyceum/cards');
+            let req = null;
+            {likes ? req = await axios.get('/lyceum/likedcourses') : req = await axios.get('/lyceum/cards')};
             
             setCourses(req.data)
         }
@@ -71,16 +77,19 @@ export default function DashCards() {
                                 {course.name}
                             </Typography>
                             <CardActions style={{}}>
-                                <Button size="small" color="primary" onClick={
-                                    () => {
-                                        like(course);
-                                    }
-                                }>
-                                <AntDesign name="like2" size={20}/>
-                                </Button>
+                                {likes ?
+                                    null :
+                                    <Button size="small" color="primary" onClick={
+                                        () => {
+                                            like(course);
+                                        }
+                                    }>
+                                        <AntDesign name="like2" size={20}/>
+                                    </Button>
+                                }
                                 <Button size="small" color="primary"onClick={() => {console.log("Share!")}}>
-                                <Feather name="share" size={20}/>
-                            </Button>
+                                    <Feather name="share" size={20}/>
+                                </Button>
                             </CardActions>
                         </View>
                         <View style={{paddingBottom:"50vh"}}>

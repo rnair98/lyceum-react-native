@@ -27,9 +27,10 @@ function Profile({navigation} : ProfileStackNavProps<"Profile">) {
     const { colors } = useTheme();
 
     const buttonNames = [
-        {name: "Courses", position: 1},
-        {name: "About", position: 2},
-        {name: "Peers", position: 3},
+        {name: "Courses", position: 0},
+        {name: "About", position: 1},
+        {name: "Peers", position: 2},
+        {name: "Groups", position: 3},
         {name: "Reviews", position: 4}
     ];
 
@@ -70,7 +71,10 @@ function Profile({navigation} : ProfileStackNavProps<"Profile">) {
          <Text style={tailwind("h3")}>Contact</Text>
          <Text>Twitter</Text>
         </View> 
-        </>
+        </>,
+        <></>,
+        <></>,
+        <></>,
 
     ]
 

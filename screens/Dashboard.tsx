@@ -35,27 +35,30 @@ import { ScrollTab } from '../components/scrollTabs';
 
 function DashBoard ({navigation}:DrawerNavProps<any>) {
 
-    const cards = (
-        <>
-        <DashCards/>
-        <View style={styles.button}>
-        <TouchableOpacity style={styles.signIn} onPress={()=>navigation.navigate('Swipe')}>
-            {/* <LinearGradient
-                colors={['#08d4c4', '#01ab9d']}
-                style={styles.signIn}
-            > */}
-                <Text style={styles.textSign}>All Courses</Text>
-                <MaterialIcons 
-                    name="navigate-next"
-                    color="#fff"
-                    size={20}
-                />
-            {/* </LinearGradient> */}
-        </TouchableOpacity>
-        </View>
-        </>
-    );
-    const Views = [cards,cards,cards,cards]
+    function cards(likes: boolean){
+        return (
+            <>
+            <DashCards likes={likes}/>
+            <View style={styles.button}>
+            <TouchableOpacity style={styles.signIn} onPress={()=>navigation.navigate('Swipe')}>
+                {/* <LinearGradient
+                    colors={['#08d4c4', '#01ab9d']}
+                    style={styles.signIn}
+                > */}
+                    <Text style={styles.textSign}>All Courses</Text>
+                    <MaterialIcons 
+                        name="navigate-next"
+                        color="#fff"
+                        size={20}
+                    />
+                {/* </LinearGradient> */}
+            </TouchableOpacity>
+            </View>
+            </>
+        );
+    }
+
+    const Views = [<></>,cards(true),cards(false),cards(false),cards(false)];
 
     let [fontsLoaded] = useFonts({
         Roboto_400Regular,
@@ -66,9 +69,10 @@ function DashBoard ({navigation}:DrawerNavProps<any>) {
     
     const { colors } = useTheme();
     const buttonNames = [
-        {name: "Top 10 Courses", position: 1},
-        {name: "Recommended Courses", position: 2},
-        {name: "Courses I Like", position: 3},
+        {name: "Matches", position: 0},
+        {name: "Courses I Like", position: 1},
+        {name: "Top 10 Courses", position: 2},
+        {name: "Recommended Courses", position: 3},
         {name: "Courses Popular with Friends", position: 4}
     ];
 

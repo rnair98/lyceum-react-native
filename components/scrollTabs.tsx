@@ -123,12 +123,12 @@ export const ScrollTab: React.FC<scrollTabProps> = ({data,views}: scrollTabProps
           scrollButtons="on"
           indicatorColor="primary"
           textColor="primary"
-          centered
         >
           <Tab label={data[0].name} {...a11yProps(0)} className={classes.text}/>
           <Tab label={data[1].name} {...a11yProps(1)} className={classes.text}/>
           <Tab label={data[2].name} {...a11yProps(2)} className={classes.text}/>
           <Tab label={data[3].name} {...a11yProps(3)} className={classes.text}/>
+          <Tab label={data[4].name} {...a11yProps(3)} className={classes.text}/>
         </Tabs>
       </Paper>
       <TabPanel value={value} index={0}>
@@ -138,9 +138,13 @@ export const ScrollTab: React.FC<scrollTabProps> = ({data,views}: scrollTabProps
         {views[1]}
       </TabPanel>
       <TabPanel value={value} index={2}>
+        {views[2]}
       </TabPanel>
       <TabPanel value={value} index={3}>
         {views[3]}
+      </TabPanel>
+      <TabPanel value={value} index={4}>
+        {views[4]}
       </TabPanel>
     </>
   );
