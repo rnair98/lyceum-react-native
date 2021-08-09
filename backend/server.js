@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import Cors from 'cors';
 
 import Cards from "./dbCards.js";
+import Likes from "./dblikedCourses.js"
 
 // App Config
 const app = express();
@@ -48,11 +49,21 @@ app.get('/lyceum/cards', (req, res) => {
 app.post('/lyceum/likedCourses', (req, res) => {
     const likedCourse = req.body;
 
-    Cards.create(likedCourse, (err, data) => {
+    Likes.create(likedCourse, (err, data) => {
         if (err) {
             res.status(500).send(err);
         } else {
             res.status(201).send(data);
+        }
+    });
+});
+
+app.get('/lyceum/likedCourses', (req, res) => {
+    Likes.find((err, data) => {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            res.status(200).send(data);
         }
     });
 });

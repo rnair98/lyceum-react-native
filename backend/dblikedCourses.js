@@ -10,4 +10,4 @@ const cardSchema = mongoose.Schema({
     
 });
 
-export default mongoose.model('cards', cardSchema);
+export default mongoose.model('likedCourses', cardSchema);
