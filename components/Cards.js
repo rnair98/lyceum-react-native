@@ -21,7 +21,6 @@ function Cards() {
 
     function match(course){
         const dataBody = {
-            "_id" : course.id,
             "name": course.name,
             "platform": course.platform,
             "instructor": course.instructor,

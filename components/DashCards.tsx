@@ -52,7 +52,6 @@ export default function DashCards({likes,matches}:DashCardProps) {
 
     function like(course){
         const dataBody = {
-            "_id": course.id,
             "name": course.name,
             "platform": course.platform,
             "instructor": course.instructor,
