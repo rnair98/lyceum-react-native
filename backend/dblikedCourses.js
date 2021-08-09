@@ -11,4 +11,4 @@ const cardSchema = mongoose.Schema({
     
 });
 
-export default mongoose.model('likedCourses', cardSchema);
+export default mongoose.model('likedcourses', cardSchema);

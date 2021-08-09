@@ -45,8 +45,9 @@ export default function DashCards() {
             "imgUrl": course.imgUrl,
             "url": course.url,
             "affiliation": course.affiliation,
+            "description": course.description,
         }
-        axios.post('/lyceum/likedCourses', dataBody)
+        axios.post('/lyceum/likedcourses', dataBody)
             .then((response) => {
                 console.log(response);
             }, (error) => {

@@ -46,7 +46,7 @@ app.get('/lyceum/cards', (req, res) => {
     });
 });
 
-app.post('/lyceum/likedCourses', (req, res) => {
+app.post('/lyceum/likedcourses', (req, res) => {
     const likedCourse = req.body;
 
     Likes.create(likedCourse, (err, data) => {
@@ -58,7 +58,7 @@ app.post('/lyceum/likedCourses', (req, res) => {
     });
 });
 
-app.get('/lyceum/likedCourses', (req, res) => {
+app.get('/lyceum/likedcourses', (req, res) => {
     Likes.find((err, data) => {
         if (err) {
             res.status(500).send(err);
