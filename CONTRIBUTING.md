@@ -30,7 +30,7 @@ This project is using the [conventional commits](https://www.conventionalcommits
   - Install Node: https://nodejs.org/en/
   - Expo: https://docs.expo.io/
 
-## Installation 
+### Installation
 
 1. Clone project
 
