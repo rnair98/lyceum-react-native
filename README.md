@@ -30,6 +30,8 @@
 
 ---
 
+![[optimize output image]](https://im2.ezgif.com/tmp/ezgif-2-c07bbd293099.gif)
+
 ## Branches
 
 * main -> PR this branch for all edits.
