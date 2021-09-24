@@ -29,10 +29,6 @@
 
 
 ---
-<p align="center">
-  <img src="https://im2.ezgif.com/tmp/ezgif-2-c07bbd293099.gif" />
-</p>
-
 ## Branches
 
 * main -> PR this branch for all edits.
